@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root{
+    --background: rgb(252, 161, 57);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    background-color: rgb(186, 108, 250);
+}
+
+.header{
+    text-align: center;
+    position: relative;
+    z-index: 666;
+    width: 100%;
+    color: #000;
+    background: var(--background); 
+    
+}
+.logo{
+    color: #000;
+    font-weight: 1000;
+}
+nav{
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    background: var(--background);
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+nav a{
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+ 
+}
+nav a:hover{
+    color: #eee;
+}
+.nav-toggle:checked ~ nav{
+   transform: scale(1,1);
+}
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+ }
+.nav-toggle{
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(161, 221, 236);
+    height: 100%;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before, 
+.nav-toggle-label span::after{
+    display: block;
+    position: relative;
+    background: #eee;
+    height: 2px;
+    width: 2em;
+    border: 2px;
+}
+.nav-toggle-label span::before, 
+.nav-toggle-label span::after{
+    content: '';
+    position: absolute;
+}
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+.nav-toggle-label span::after{
+    top: 7px;
+}
+@media screen and (min-width: 800px){
+    .nav-toggle-label{
+        display: none;
+    }
+    .header{
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+    .logo{
+        grid-column: 2/3;
+    }
+    nav{
+        all: unset;
+        grid-column: 3/4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav a{
+        opacity: 1;
+        position: relative;
+    }
+    nav ul{
+        display: flex;
+    }
+    nav li{
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+    nav a::before{
+        content: '';
+        position: absolute;
+        display: block;
+        height: 5px;
+        background: rgb(161, 221, 236);
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0,1);
+
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before{
+        transform: scale(1,1);
+    }
+}
+h1,h2,h3{
+    margin-bottom: 0;
+}
+.section-one{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    line-height: 1.5;
+    min-height: 200px;
+}
+.section-one h1{
+    font-size: 2.5em;
+}
+img{
+    display: flex;
+    justify-content: flex-end;
+    max-height:350px;
+    max-width: 100%;
+    margin: 0;
+    
+}
+.section-two{
+    text-align: center;  
+}
+.section-two .container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.box{
+    flex: 1;
+    background-color: rgb(159, 53, 247) ;
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px 10px;
+    padding: 15px 20px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+    text-align: justify;
+}
+.box i{
+    margin-right: 10px;
+}
+
+@media(max-width: 768px){
+    .section-on, .section-two{
+        flex-direction: column;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .container .box{
+        display: block;
+        text-align: center;
+    }
+
+}
+
+
